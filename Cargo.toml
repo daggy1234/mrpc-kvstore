@@ -1,0 +1,34 @@
+[package]
+name = "kvstore"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[build-dependencies.mrpc-build]
+workspace = true
+
+[dependencies]
+prost = { workspace = true, features = ["mrpc-frontend"] }
+shm = { path = "../../../../src/shm" }
+
+[dependencies.structopt]
+workspace = true
+
+[dependencies.smol]
+workspace = true
+
+[dependencies.mrpc]
+workspace = true
+
+[[bin]]
+name = "kvstore_frontend"
+path = "src/frontend.rs"
+
+[[bin]]
+name = "kvstore_server"
+path = "src/server.rs"
+
+[[bin]]
+name = "kvstore_client"
+path = "src/client.rs"
